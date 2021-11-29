@@ -1,0 +1,5 @@
+<library path="lib/libUSVCaptain">
+  <class name="usv_captain/USVCaptain" type="usv_captain::USVCaptain" base_class_type="nodelet::Nodelet">
+    <description>The USV Captain nodelet</description>
+  </class>
+</library>

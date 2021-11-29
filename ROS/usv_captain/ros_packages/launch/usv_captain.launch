@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- set to false if the nodelet should run under an external nodelet manager -->
+  <arg name="standalone" default="true" />
+
+  <!-- will it run using GNU debugger? -->
+  <arg name="debug" default="false" />
+  <arg unless="$(arg debug)" name="launch_prefix_debug" value=""/>
+  <arg     if="$(arg debug)" name="launch_prefix_debug" value="debug_roslaunch"/>
+
+  <!-- will it run as standalone nodelet or using a nodelet manager? -->
+  <arg name="manager" default="usv_captain_manager" />
+  <arg     if="$(arg standalone)" name="nodelet" value="standalone"/>
+  <arg unless="$(arg standalone)" name="nodelet" value="load"/>
+  <arg     if="$(arg standalone)" name="nodelet_manager" value=""/>
+  <arg unless="$(arg standalone)" name="nodelet_manager" value="$(arg manager)"/>
+
+  <!-- USVCaptain nodelet -->
+  <node pkg="nodelet" type="nodelet" name="usv_captain" args="$(arg nodelet) usv_captain/USVCaptain $(arg nodelet_manager)" launch-prefix="$(arg launch_prefix_debug)" output="screen">
+  
+  </node>
+
+</launch>

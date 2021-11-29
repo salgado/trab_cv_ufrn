@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+
+  <name>usv_captain</name>
+  <version>0.1.0</version>
+  <description>The USV Captain package</description>
+
+  <maintainer email="thulioguilherme53@gmail.com">Thulio Amorim</maintainer>
+  <author email="thulioguilherme53@gmail.com">Thulio Amorim</author>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>nodelet</depend>
+  <depend>roscpp</depend>
+  <depend>std_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>image_transport</depend>
+  <depend>cv_bridge</depend>
+  
+  <export>
+    <!-- The plugins.xml file defines nodelet as a plugin -->
+    <nodelet plugin="${prefix}/plugins.xml" />
+  </export>
+
+</package>
